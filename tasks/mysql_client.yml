@@ -5,6 +5,6 @@
   when: ansible_os_family == 'RedHat'
 
 - name: Ensure MySQL Client package is installed.
-  apt: "name={{ item }} state=installed enablerepo={{ mysql_enablerepo }}"
+  apt: "name={{ item }} state=installed update_cache=yes"
   with_items: mysql_client_packages
   when: ansible_os_family == 'Debian'
